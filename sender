@@ -1,0 +1,20 @@
+$("body").on("change", "input.sender:checkbox", function ()
+    {
+        var id = $(this).attr("data-id");
+        var data = { id: id, code: "SENDER_NEW" };
+        if ($(this).is(":checked"))
+        {
+            data["value"] = ["c573854ad314b54be95dbf25d593d00e"];
+            send("edit_one", data);
+            $(this)
+                .next()
+                .addClass("sender");
+        } else
+        {
+            data["value"] = [""];
+            send("edit_one", data);
+            $(this)
+                .next()
+                .removeClass("sender");
+        }
+    });
